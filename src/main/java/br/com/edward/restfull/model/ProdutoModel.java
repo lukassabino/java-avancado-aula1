@@ -8,8 +8,7 @@ public class ProdutoModel {
 	private String nome;
 	private Double preco;
 	private Long id;
-	private static long count = 1L;
-	
+	private static Long count = 1L;
 
 	public Long getId() {
 		return id;
@@ -37,5 +36,5 @@ public class ProdutoModel {
 	public ZonedDateTime getDataCriacao() {
 		return dataCriacao;
 	}
-	
+
 }
