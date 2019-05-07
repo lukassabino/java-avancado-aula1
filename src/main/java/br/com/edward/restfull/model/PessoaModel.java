@@ -36,7 +36,7 @@ public class PessoaModel {
 		this();
 		this.nome = nome;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
