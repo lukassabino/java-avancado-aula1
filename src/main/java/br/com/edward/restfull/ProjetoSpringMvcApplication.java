@@ -10,6 +10,5 @@ public class ProjetoSpringMvcApplication {
 		SpringApplication.run(ProjetoSpringMvcApplication.class, args);
 	}
 	
-	//aqui
 
 }
