@@ -11,7 +11,7 @@ public abstract class PessoaJuridicaModel extends PessoaModel {
 
 	@Override
 	public Boolean getValidarDocumento() {
-		return Objects.nonNull(this.getDocumento()) && this.getDocumento().length() == 14;
+		return Objects.nonNull(super.getDocumento()) && super.getDocumento().length() == 14;
 	}
 
 }
