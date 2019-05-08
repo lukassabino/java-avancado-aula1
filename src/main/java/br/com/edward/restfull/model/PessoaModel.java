@@ -2,15 +2,22 @@ package br.com.edward.restfull.model;
 
 import java.time.ZonedDateTime;
 
-public class PessoaModel {
-	
+public abstract class PessoaModel {
 
 	private ZonedDateTime dataCriacao;
 	private String nome;
+	private String documento;
+
+	public String getDocumento() {
+		return documento;
+	}
+
 	private String sobrenome;
-	private int idade;
-	private double peso;
+	private Integer idade;
+	private Double peso;
 	private Long id;
+
+	public abstract Boolean getValidarDocumento();
 
 	public long getId() {
 		return id;
@@ -31,7 +38,7 @@ public class PessoaModel {
 	public PessoaModel() {
 		this.dataCriacao = ZonedDateTime.now();
 	}
-	
+
 	public PessoaModel(String nome) {
 		this();
 		this.nome = nome;

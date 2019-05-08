@@ -1,0 +1,18 @@
+package br.com.edward.restfull.model;
+
+import java.util.Objects;
+
+public abstract class PessoaFisicaModel extends PessoaModel {
+
+	private Boolean usaOculos;
+
+	public Boolean getUsaOculos() {
+		return usaOculos;
+	}
+
+	@Override
+	public Boolean getValidarDocumento() {
+		return Objects.nonNull(this.getDocumento()) && this.getDocumento().length() == 11;
+	}
+
+}
