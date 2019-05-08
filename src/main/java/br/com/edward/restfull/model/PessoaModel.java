@@ -7,11 +7,6 @@ public abstract class PessoaModel {
 	private ZonedDateTime dataCriacao;
 	private String nome;
 	private String documento;
-
-	public String getDocumento() {
-		return documento;
-	}
-
 	private String sobrenome;
 	private Integer idade;
 	private Double peso;
@@ -50,5 +45,9 @@ public abstract class PessoaModel {
 
 	public ZonedDateTime getDataCriacao() {
 		return dataCriacao;
+	}
+
+	public String getDocumento() {
+		return documento;
 	}
 }
