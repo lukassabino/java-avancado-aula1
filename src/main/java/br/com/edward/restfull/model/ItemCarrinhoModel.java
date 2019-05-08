@@ -1,31 +1,29 @@
 package br.com.edward.restfull.model;
 
 public class ItemCarrinhoModel {
-	private String nome;
-	private Integer quantidade;
-	private Double preco;
-	private Long id;
-	private static Long count = 1L;
+
+	private static Long cont = 0L;
+
+	private final Long id;
+	private Integer qtd;
 	private ProdutoModel produto;
 
-	public String getNome() {
-		return nome;
+	public ItemCarrinhoModel() {
+		this.id = ++cont;
 	}
 
-	public Integer getQuantidade() {
-		return quantidade;
-	}
-
-	public Double getPreco() {
-		return preco;
+	public ItemCarrinhoModel(Integer qtd, ProdutoModel produto) {
+		this();
+		this.qtd = qtd;
+		this.produto = produto;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public static Long getCount() {
-		return count;
+	public Integer getQtd() {
+		return qtd;
 	}
 
 	public ProdutoModel getProduto() {
@@ -33,7 +31,6 @@ public class ItemCarrinhoModel {
 	}
 
 	public Double getTotal() {
-		return produto.getPreco() * quantidade;
+		return this.qtd * this.produto.getPreco();
 	}
-
 }
