@@ -14,4 +14,12 @@ public abstract class PessoaFisicaModel extends PessoaModel {
 		return Objects.nonNull(super.getDocumento()) && super.getDocumento().length() == 11;
 	}
 
+	public PessoaFisicaModel() {
+		super();
+	}
+
+	public PessoaFisicaModel(String nome) {
+		super(nome);
+	}
+
 }
