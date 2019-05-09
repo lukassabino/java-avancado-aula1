@@ -24,7 +24,7 @@ public class CarrinhoModel {
 		this.itens.add(new ItemCarrinhoModel(qtd, produto));
 	}
 
-	public ItemCarrinhoModel removerItem(Long id) {
+	public ItemCarrinhoModel removerItem(Integer qtd, Long id) {
 
 		ItemCarrinhoModel item = this.itens.stream().filter(x -> id.equals(x.getId())).findAny().orElse(null);
 		if (Objects.nonNull(item)) {
@@ -32,10 +32,5 @@ public class CarrinhoModel {
 		}
 		return item;
 	}
-	// conta antiga, deixado comentado pois feito em lambda
-	/*
-	 * public Double getTotal() { Double totalItens = 0.0; for (ItemCarrinhoModel
-	 * item : itens) { totalItens += item.getTotal(); } return totalItens; }
-	 */
 
 }

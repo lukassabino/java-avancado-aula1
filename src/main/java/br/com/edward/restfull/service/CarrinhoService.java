@@ -9,5 +9,5 @@ public interface CarrinhoService {
 
 	CarrinhoModel mostrarTudo();
 
-	ItemCarrinhoModel remover(Long idItemCarrinho);
+	ItemCarrinhoModel remover(Integer qtd, Long idItemCarrinho);
 }

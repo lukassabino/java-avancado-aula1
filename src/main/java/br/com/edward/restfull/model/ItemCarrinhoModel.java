@@ -30,6 +30,7 @@ public class ItemCarrinhoModel {
 		return produto;
 	}
 
+	// Retornar o total de cada item
 	public Double getTotal() {
 		return this.qtd * this.produto.getPreco();
 	}

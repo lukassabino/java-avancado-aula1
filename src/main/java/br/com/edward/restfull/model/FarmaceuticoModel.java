@@ -1,13 +1,19 @@
 package br.com.edward.restfull.model;
 
-public class FarmaceuticoModel extends PessoaFisicaModel {
-	private String crf;
+public class FarmaceuticoModel extends PessoFisicaModel {
 
-	public FarmaceuticoModel(String nome) {
-	}
+	private String crf;
 
 	public String getCrf() {
 		return crf;
+	}
+
+	public FarmaceuticoModel() {
+		super();
+	}
+
+	public FarmaceuticoModel(String nome) {
+		super(nome);
 	}
 
 }

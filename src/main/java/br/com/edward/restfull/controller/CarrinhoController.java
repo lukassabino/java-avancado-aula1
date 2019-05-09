@@ -30,7 +30,7 @@ public class CarrinhoController {
 	}
 
 	@DeleteMapping("/remover")
-	public ItemCarrinhoModel remover(@RequestParam Long id) {
-		return carrinhoService.remover(id);
+	public ItemCarrinhoModel remover(@RequestParam Integer qtd, @RequestParam Long id) {
+		return carrinhoService.remover(qtd, id);
 	}
 }
