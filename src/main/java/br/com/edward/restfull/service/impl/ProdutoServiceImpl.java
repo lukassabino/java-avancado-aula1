@@ -37,10 +37,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 	public ProdutoModel remover(Long id) {
 		ProdutoModel produto = prodService.consultar(id);
 		if (Objects.nonNull(produto)) {
-			lista.remove(id);
+			lista.remove(produto);
 
 		}
 		return (ProdutoModel) lista;
 	}
-
 }
