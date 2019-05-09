@@ -2,6 +2,9 @@ package br.com.edward.restfull.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.edward.restfull.model.ProdutoModel;
 import br.com.edward.restfull.service.ProdutoService;
@@ -10,6 +13,9 @@ import br.com.edward.restfull.service.ProdutoService;
 public class ProdutoServiceImpl implements ProdutoService {
 
 	private static List<ProdutoModel> lista = new ArrayList<>();
+
+	@Autowired
+	private ProdutoService prodService;
 
 	@Override
 	public ProdutoModel consultar(Long idProduto) {
@@ -27,11 +33,14 @@ public class ProdutoServiceImpl implements ProdutoService {
 		return lista;
 	}
 
-	// terminar o parametro remover
 	@Override
 	public ProdutoModel remover(Long id) {
-		this.consultar(id);
-		return remover(id);
+		ProdutoModel produto = prodService.consultar(id);
+		if (Objects.nonNull(produto)) {
+			lista.remove(id);
+
+		}
+		return (ProdutoModel) lista;
 	}
 
 }
