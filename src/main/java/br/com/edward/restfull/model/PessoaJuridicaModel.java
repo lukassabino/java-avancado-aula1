@@ -6,10 +6,6 @@ public abstract class PessoaJuridicaModel extends PessoaModel {
 
 	private String razaoSocial;
 
-	public String getRazaoSocial() {
-		return razaoSocial;
-	}
-
 	public PessoaJuridicaModel() {
 		super();
 	}
@@ -19,7 +15,11 @@ public abstract class PessoaJuridicaModel extends PessoaModel {
 	}
 
 	@Override
-	public Boolean getValidarDocumento() {
+	public Boolean getDocumentoValido() {
 		return Objects.nonNull(super.getDocumento()) && super.getDocumento().length() == 14;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
 }

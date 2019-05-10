@@ -6,7 +6,11 @@ import br.com.edward.restfull.model.PessoaModel;
 
 public interface PessoaService {
 
-    PessoaModel post(PessoaModel model);
-    List<PessoaModel> mostrarTudo();
-    PessoaModel remover(Long id);
+	PessoaModel post(PessoaModel model);
+
+	List<PessoaModel> mostrarTudo();
+
+	PessoaModel remover(Long id);
+
+	PessoaModel consultar(Long idPessoa);
 }

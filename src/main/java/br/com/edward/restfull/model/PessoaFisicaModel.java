@@ -2,24 +2,24 @@ package br.com.edward.restfull.model;
 
 import java.util.Objects;
 
-public abstract class PessoFisicaModel extends PessoaModel {
+public abstract class PessoaFisicaModel extends PessoaModel {
 
 	private Boolean usaOculos;
 
-	public Boolean isUsaOculos() {
-		return usaOculos;
-	}
-
-	public PessoFisicaModel() {
+	public PessoaFisicaModel() {
 		super();
 	}
 
-	public PessoFisicaModel(String nome) {
+	public PessoaFisicaModel(String nome) {
 		super(nome);
 	}
 
 	@Override
-	public Boolean getValidarDocumento() {
+	public Boolean getDocumentoValido() {
 		return Objects.nonNull(super.getDocumento()) && super.getDocumento().length() == 11;
+	}
+
+	public Boolean getUsaOculos() {
+		return usaOculos;
 	}
 }

@@ -18,12 +18,12 @@ public abstract class PessoaModel {
 		this.dataCriacao = ZonedDateTime.now();
 	}
 
-	public abstract Boolean getValidarDocumento();
-
 	public PessoaModel(String nome) {
 		this();
 		this.nome = nome;
 	}
+
+	public abstract Boolean getDocumentoValido();
 
 	public Long getId() {
 		return id;
@@ -48,5 +48,4 @@ public abstract class PessoaModel {
 	public String getDocumento() {
 		return documento;
 	}
-
 }

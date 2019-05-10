@@ -29,12 +29,12 @@ public class ProdutoModel {
 		return qtdEstoque;
 	}
 
-	//Retirar produto do estoque quando acionar no carrinho.
+	// Retirar produto do estoque quando acionar no carrinho.
 	public void reduzirEstoque(Integer qtd) {
 		this.qtdEstoque = this.qtdEstoque - qtd;
 	}
 
-	//Incluir produto no estoque depois de remover no carrinho.
+	// Incluir produto no estoque depois de remover no carrinho.
 	public void aumentarEstoque(Integer qtd) {
 		this.qtdEstoque = this.qtdEstoque + qtd;
 	}
