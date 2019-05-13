@@ -16,21 +16,21 @@ import br.com.edward.restfull.service.CarrinhoService;
 @RequestMapping("/carrinho")
 public class CarrinhoController {
 
-	@Autowired
-	private CarrinhoService carrinhoService;
-
-	@PostMapping("/adicionar")
-	public CarrinhoModel adicionar(@RequestParam Integer qtd, @RequestParam Long id) {
-		return carrinhoService.adicionar(qtd, id);
-	}
-
-	@GetMapping("/mostrar-tudo")
-	public CarrinhoModel mostrarTudo() {
-		return carrinhoService.mostrarTudo();
-	}
-
-	@DeleteMapping("/remover")
-	public ItemCarrinhoModel remover(@RequestParam Integer qtd, @RequestParam Long id) {
-		return carrinhoService.remover(qtd, id);
-	}
+    @Autowired
+    private CarrinhoService carrinhoService;
+    
+    @PostMapping("/adicionar")
+    public CarrinhoModel adicionar(@RequestParam Integer qtd, @RequestParam Long id) {
+       return new CarrinhoModel(carrinhoService.adicionar(qtd, id));
+    }
+    
+    @GetMapping("/mostrar-tudo")
+    public CarrinhoModel mostrarTudo() {
+        return new CarrinhoModel(carrinhoService.mostrarTudo());
+    }
+    
+    @DeleteMapping("/remover")
+    public ItemCarrinhoModel remover(@RequestParam Long id) {
+        return new ItemCarrinhoModel(carrinhoService.remover(id));
+    }
 }

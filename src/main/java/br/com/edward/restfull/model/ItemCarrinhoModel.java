@@ -1,37 +1,22 @@
 package br.com.edward.restfull.model;
 
+import br.com.edward.restfull.domain.ItemCarrinho;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Getter
 public class ItemCarrinhoModel {
-
-	private static Long cont = 0L;
-
-	private final Long id;
-	private Integer qtd;
-	private ProdutoModel produto;
-
-	public ItemCarrinhoModel() {
-		this.id = ++cont;
-	}
-
-	public ItemCarrinhoModel(Integer qtd, ProdutoModel produto) {
-		this();
-		this.qtd = qtd;
-		this.produto = produto;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public Integer getQtd() {
-		return qtd;
-	}
-
-	public ProdutoModel getProduto() {
-		return produto;
-	}
-
-	// Retornar o total de cada item
-	public Double getTotal() {
-		return this.qtd * this.produto.getPreco();
-	}
+    
+    private Long id;
+    private Integer qtd;
+    private String produto;
+    private Double total;
+    
+    public ItemCarrinhoModel(ItemCarrinho domain) {
+        this.id = domain.getId();
+        this.qtd = domain.getQtd();
+        this.produto = domain.getProduto().getNome();
+        this.total = domain.getTotal();
+    }
 }
