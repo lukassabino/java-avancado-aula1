@@ -46,8 +46,7 @@ public class Produto {
         this.qtd += qtd;
     }
     
-    public void removerEstoque(Integer qtd) {
-        
+    public void removerEstoque(Integer qtd) {        
         if (this.qtd >= qtd) {
             this.qtd -= qtd;
         } else {
@@ -55,8 +54,7 @@ public class Produto {
         }
     }
 
-    public void alterar(ProdutoModel model) {
-        
+    public void alterar(ProdutoModel model) {        
         this.nome = model.getNome();
         this.preco = model.getPreco();
         this.qtd = model.getQtd();

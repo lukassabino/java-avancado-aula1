@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.edward.restfull.domain.Produto;
 import br.com.edward.restfull.model.ProdutoModel;
+import br.com.edward.restfull.model.TotalProdutoModel;
 import br.com.edward.restfull.repository.ProdutoRepository;
 import br.com.edward.restfull.service.ProdutoService;
 
@@ -16,41 +17,52 @@ import br.com.edward.restfull.service.ProdutoService;
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
 
-    @Autowired
-    private ProdutoRepository produtoRepository;
-    
-    @Override
-    public Produto consultar(Long idProduto) {
-        return produtoRepository.findById(idProduto).orElse(null);
-    }
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
-    @Override
-    public Produto cadastrar(ProdutoModel model) {
-        
-        return produtoRepository.save(new Produto(model));
-    }
+	@Override
+	public Produto consultar(Long idProduto) {
+		return produtoRepository.findById(idProduto).orElse(null);
+	}
 
-    @Override
-    public List<Produto> mostrarTudo() {
-        return produtoRepository.findAll();
-    }
+	@Override
+	public Produto cadastrar(ProdutoModel model) {
 
-    @Override
-    public Produto remover(Long id) {
-        Produto produto = this.consultar(id);
-        if (Objects.nonNull(produto)) {
-            produtoRepository.delete(produto);
-        }
-        return produto;
-    }
+		return produtoRepository.save(new Produto(model));
+	}
 
-    @Override
-    public Produto alterar(ProdutoModel model) {
-        Produto produto = this.consultar(model.getId());
-        if (Objects.nonNull(produto)) {
-            produto.alterar(model);
-            return produtoRepository.save(produto);
-        }
-        return produto;
-    }
+	@Override
+	public List<Produto> mostrarTudo() {
+		return produtoRepository.findAll();
+	}
+
+	@Override
+	public Produto remover(Long id) {
+		Produto produto = this.consultar(id);
+		if (Objects.nonNull(produto)) {
+			produtoRepository.delete(produto);
+		}
+		return produto;
+	}
+
+	@Override
+	public Produto alterar(ProdutoModel model) {
+		Produto produto = this.consultar(model.getId());
+		if (Objects.nonNull(produto)) {
+			produto.alterar(model);
+			return produtoRepository.save(produto);
+		}
+		return produto;
+	}
+
+	@Override
+	public TotalProdutoModel getTotal() {
+		List<Produto> lista = produtoRepository.findAll();
+		Double valorMedio = lista.stream().mapToDouble(Produto::getPreco).average().orElse(0D);
+		Integer totalEstoque = lista.stream().mapToInt(Produto::getQtd).sum();
+		Integer qtdProdutos = lista.size();
+		return new TotalProdutoModel(valorMedio, totalEstoque, qtdProdutos);
+
+	}
+
 }

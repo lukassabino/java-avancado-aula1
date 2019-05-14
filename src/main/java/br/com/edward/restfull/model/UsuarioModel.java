@@ -17,6 +17,5 @@ public class UsuarioModel {
 		this.id = domain.getId();
 		this.nome = domain.getNome();
 		this.login = domain.getLogin();
-		this.senha = domain.getSenha();
 	}
 }
