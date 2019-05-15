@@ -13,7 +13,5 @@ public interface ProdutoService {
     List<Produto> mostrarTudo();
     Produto remover(Long id);
     Produto alterar(ProdutoModel model);
-	TotalProdutoModel getTotal();	
-	
-	
+    TotalProdutoModel getTotal();
 }
